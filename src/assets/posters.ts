@@ -1,6 +1,6 @@
 import { Poster } from '../app/models/poster.model';
 
-export const posters: ReadonlyArray<Poster> = [
+export const posters: Poster[] = [
   {
     id: 1,
     adult: false,
