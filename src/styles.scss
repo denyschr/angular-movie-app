@@ -1,1 +1,238 @@
-/* You can add global styles to this file, and also import other style files */
+// =======================================================
+// Fonts
+// =======================================================
+@import url(https://fonts.googleapis.com/css?family=Manrope:regular,700);
+
+// =======================================================
+// Variables
+// =======================================================
+:root {
+	// Typography
+	--font-family-base: "Manrope";
+	--font-weight-base: 400;
+	--font-weight-bold: 700;
+
+	// Text scaling
+	--text-size-smaller-2: 0.75rem;
+	--text-size-smaller: 0.875rem;
+	--text-size-base: 1rem;
+	--text-size-larger: 1.25rem;
+	--text-size-larger-2: 1.875rem;
+
+	// Color Scheme
+	--background-base: #1a1a1a;
+	--background-tinted-highlight: #242424;
+	--background-press: #141414;
+	--text-base: #fff;
+	--text-subdued: #999999;
+	--text-warning: #ffa42b;
+
+	// Layout
+	--content-spacing: 16px;
+	--content-max-width: 1280px;
+}
+
+// =======================================================
+// Base styles
+// =======================================================
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font: inherit;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	background-color: var(--background-press);
+	color: var(--text-base);
+	font-family: var(--font-family-base), sans-serif;
+	font-size: var(--text-size-base);
+	font-weight: var(--font-weight-base);
+	text-rendering: optimizeLegibility;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+	vertical-align: top;
+}
+
+a {
+	display: inline-block;
+	color: inherit;
+	text-decoration: none;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	cursor: pointer;
+	color: inherit;
+	background-color: transparent;
+}
+
+button,
+input,
+textarea {
+	font-size: inherit;
+	line-height: inherit;
+	border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	display: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+	appearance: button;
+}
+
+[class*="_container"] {
+	max-width: calc(var(--content-max-width) + (var(--content-spacing) * 2));
+	margin: 0 auto;
+	padding: 0 var(--content-spacing);
+}
+
+// =======================================================
+// Layout
+// =======================================================
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: clip;
+}
+
+.main-view {
+	flex-grow: 1;
+}
+
+// =======================================================
+// Utils
+// =======================================================
+// Flex styles
+.flex-row-center {
+	display: flex;
+	align-items: center;
+}
+
+.flex-all-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.flex-col-start {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+// Text styles
+.text-body-medium,
+.text-body-medium-bold {
+	font-size: var(--text-size-base);
+}
+
+.text-body-small,
+.text-body-small-bold {
+	font-size: var(--text-size-smaller);
+}
+
+.text-body-marginal,
+.text-body-marginal-bold {
+	font-size: var(--text-size-smaller-2);
+}
+
+.text-body-medium-bold,
+.text-body-small-bold,
+.text-body-marginal-bold {
+	font-weight: 700;
+}
+
+// Title styles
+.text-title-medium {
+	font-size: var(--text-size-larger-2);
+}
+
+.text-title-small {
+	font-size: var(--text-size-larger);
+}
+
+.text-title-small,
+.text-title-medium {
+	font-weight: 700;
+}
+
+// Text truncation
+.truncate,
+.truncate-double,
+.truncate-triple {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.truncate {
+	-webkit-line-clamp: 1;
+}
+
+.truncate-double {
+	-webkit-line-clamp: 2;
+}
+
+.truncate-triple {
+	-webkit-line-clamp: 3;
+}
+
+// Section styles
+.section {
+	padding: 1.875rem 0;
+	// .section__title
+	&__title {
+		margin-bottom: 1.25rem;
+	}
+	// .section__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1.25rem;
+	}
+}

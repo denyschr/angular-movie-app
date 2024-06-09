@@ -1,0 +1,40 @@
+@if (posters.length) {
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Must - Watch Movies</h2>
+    <div class="section__items">
+      @for (poster of posters; track poster.id) {
+      <app-movie-card
+        [poster]="poster"
+        (addToWatchList)="addToWatchList($event)"
+        (addToFavoritesList)="addToFavoritesList($event)"
+      ></app-movie-card>
+      }
+    </div>
+  </div>
+</section>
+} @if (watchList.length) {
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Your watchlist</h2>
+    <div class="section__watchlist">
+      @for (title of watchList; track title; let last = $last) {
+      <a href="#" class="text-title-small">{{ title }}</a>
+      <ng-container *ngIf="!last">, </ng-container>
+      }
+    </div>
+  </div>
+</section>
+} @if (favoritesList.length) {
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Your favorites</h2>
+    <div class="section__favorites">
+      @for (title of favoritesList; track title; let last = $last) {
+      <a href="#" class="text-title-small">{{ title }}</a>
+      <ng-container *ngIf="!last">, </ng-container>
+      }
+    </div>
+  </div>
+</section>
+}
