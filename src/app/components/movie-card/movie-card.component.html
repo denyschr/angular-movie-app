@@ -14,7 +14,7 @@
         <span class="poster__director">Directed by {{ poster.director }}</span>
       </div>
       <span class="poster__duration text-body-small">{{
-        convertMinutesToHours(poster.duration)
+        poster.duration | minutesToHours
       }}</span>
     </div>
     <div class="poster__rating rating-poster flex-row-center text-body-small">
