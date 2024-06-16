@@ -14,12 +14,4 @@ export class MovieCardComponent {
   @Input() poster!: Poster;
   @Output() addToWatchList = new EventEmitter<number>();
   @Output() addToFavoritesList = new EventEmitter<number>();
-
-  public onAddToWatchList(id: number): void {
-    this.addToWatchList.emit(id);
-  }
-
-  public onAddToFavoritesList(id: number): void {
-    this.addToFavoritesList.emit(id);
-  }
 }
