@@ -4,14 +4,14 @@ import { Poster } from '../../models/poster.model';
 import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-to-hours.pipe';
 
 @Component({
-  selector: 'app-movie-card',
+  selector: 'app-poster-card',
   standalone: true,
   imports: [CommonModule, MinutesToHoursPipe],
-  templateUrl: './movie-card.component.html',
-  styleUrl: './movie-card.component.scss',
+  templateUrl: './poster-card.component.html',
+  styleUrl: './poster-card.component.scss',
 })
-export class MovieCardComponent {
+export class PosterCardComponent {
   @Input() poster!: Poster;
   @Output() addToWatchList = new EventEmitter<number>();
-  @Output() addToFavoritesList = new EventEmitter<number>();
+  @Output() addToFavoriteList = new EventEmitter<number>();
 }

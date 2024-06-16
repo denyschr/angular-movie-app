@@ -64,13 +64,13 @@
 	}
 	// .poster__actions
 	&__actions {
-		display: grid;
-		width: 100%;
 		gap: 0.5rem;
 	}
 	// .poster__button
 	&__button {
-		gap: 0.625rem;
+		width: 46px;
+		height: 46px;
+		flex-basis: 46px;
 		padding: 0.5rem 0.625rem;
 		border-radius: 3.125rem;
 		background-color: var(--background-base);

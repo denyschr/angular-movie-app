@@ -23,26 +23,26 @@
     </div>
     <div class="poster__genres">
       @for (genre of poster.genres; track poster.id) {
-      <span class="poster__genre text-body-small-bold">#{{ genre }}</span>
+      <span class="poster__genre text-body-small-bold"
+        >#{{ genre | lowercase }}</span
+      >
       }
     </div>
     <p class="poster__description truncate-triple text-body-small">
       {{ poster.description }}
     </p>
-    <div class="poster__actions">
+    <div class="poster__actions flex-row-center">
       <button
-        class="poster__button flex-all-center text-body-medium-bold"
+        class="poster__button flex-all-center text-body-medium"
         (click)="addToWatchList.emit(poster.id)"
       >
-        <i class="fa-solid fa-plus"></i>
-        <span>Watchlist</span>
+        <i class="fa-regular fa-bookmark"></i>
       </button>
       <button
-        class="poster__button flex-all-center text-body-medium-bold"
-        (click)="addToFavoritesList.emit(poster.id)"
+        class="poster__button flex-all-center text-body-medium"
+        (click)="addToFavoriteList.emit(poster.id)"
       >
-        <i class="fa-regular fa-bookmark"></i>
-        <span>Favorite</span>
+        <i class="fa-regular fa-heart"></i>
       </button>
     </div>
   </div>
