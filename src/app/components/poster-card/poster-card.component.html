@@ -1,7 +1,9 @@
-<article class="poster">
-  <a href="#" class="poster__img">
-    <img [src]="'/assets/images' + poster.image" [alt]="poster.title" />
-  </a>
+<p-card styleClass="poster">
+  <ng-template pTemplate="header">
+    <a href="#" class="poster__img">
+      <img [src]="'/assets/images' + poster.image" [alt]="poster.title" />
+    </a>
+  </ng-template>
   <div class="poster__interactive-area flex-col-start">
     <div class="poster__title-area">
       <a href="#" class="poster__title truncate text-title-small">
@@ -17,11 +19,10 @@
         poster.duration | minutesToHours
       }}</span>
     </div>
-    <div class="poster__rating rating-poster flex-row-center text-body-small">
-      <i class="rating-poster__star fa-solid fa-star"></i>
-      <span class="rating-poster__value">{{ poster.rating }}</span>
+    <div class="poster__rating">
+      <p-rating [cancel]="false" />
     </div>
-    <div class="poster__genres">
+    <div class="poster__genres flex-row-center text-body-small-bold">
       @for (genre of poster.genres; track poster.id) {
       <span class="poster__genre text-body-small-bold"
         >#{{ genre | lowercase }}</span
@@ -32,18 +33,16 @@
       {{ poster.description }}
     </p>
     <div class="poster__actions flex-row-center">
-      <button
-        class="poster__button flex-all-center text-body-medium"
+      <p-button
+        styleClass="poster-action"
+        icon="pi pi-bookmark"
         (click)="addToWatchList.emit(poster.id)"
-      >
-        <i class="fa-regular fa-bookmark"></i>
-      </button>
-      <button
-        class="poster__button flex-all-center text-body-medium"
+      />
+      <p-button
+        styleClass="poster-action"
+        icon="pi pi-heart"
         (click)="addToFavoriteList.emit(poster.id)"
-      >
-        <i class="fa-regular fa-heart"></i>
-      </button>
+      />
     </div>
   </div>
-</article>
+</p-card>

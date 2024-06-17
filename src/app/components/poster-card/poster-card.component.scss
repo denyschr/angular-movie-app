@@ -1,95 +1,69 @@
+:host {
+	::ng-deep p-card {
+		.poster {
+			height: 100%;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+		.p-card-body {
+			user-select: none;
+		}
+		.poster-action {
+			width: 34px;
+			height: 34px;
+			border-radius: 50%;
+			background-color: var(--red-400);
+			transition: background 0.2s linear;
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: var(--red-500);
+				}
+			}
+		}
+	}
+}
+
 .poster {
-	position: relative;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	overflow: hidden;
-	border-radius: 1.25rem;
-	background-color: var(--background-base);
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-	// .poster__img
 	&__img {
 		width: 100%;
-		aspect-ratio: 253 / 324;
+		aspect-ratio: 254 / 328;
 		img {
 			width: 100%;
 			height: 100%;
 		}
 	}
-	// .poster__interactive-area
 	&__interactive-area {
-		flex-grow: 1;
-		gap: 0.5rem;
-		padding: 0.875rem;
-		background-color: rgba(0, 0, 0, 0.5);
-		user-select: none;
+		gap: 6px;
+		padding: 10px;
 	}
-	// .poster__title-area
 	&__title-area {
 		display: grid;
-		gap: 0.25rem;
-		flex-grow: 1;
+		gap: 4px;
 	}
-	// .poster__title
 	&__title {
+		color: var(--primary);
+		justify-self: flex-start;
 		transition: color 0.2s linear;
 		@media (any-hover: hover) {
 			&:hover {
-				color: var(--text-warning);
+				color: var(--red-400);
 			}
 		}
 	}
-	// .poster__info-meta
-	&__info-meta {
-		color: var(--text-subdued);
-	}
-	// .poster__genres
 	&__genres {
-		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		gap: 8px;
 	}
-	// .poster__genre
 	&__genre {
-		display: inline-block;
-		padding: 0.313rem 0.625rem;
-		border-radius: 3.125rem;
-		background-color: var(--background-base);
-		color: var(--text-subdued);
+		color: var(--primary-50);
+		padding: 4px 8px;
+		border-radius: 20px;
+		background-color: var(--red-400);
 	}
-	// .poster__description
 	&__description {
 		font-style: italic;
 	}
-	// .poster__actions
 	&__actions {
-		gap: 0.5rem;
-	}
-	// .poster__button
-	&__button {
-		width: 46px;
-		height: 46px;
-		flex-basis: 46px;
-		padding: 0.5rem 0.625rem;
-		border-radius: 3.125rem;
-		background-color: var(--background-base);
-		transition: background 0.2s linear;
-		@media (any-hover: hover) {
-			&:hover {
-				background-color: var(--background-tinted-highlight);
-			}
-		}
-		&:active {
-			background-color: var(--background-press);
-		}
-	}
-}
-
-.rating-poster {
-	gap: 0.25rem;
-	// .rating__star
-	&__star {
-		color: var(--text-warning);
+		gap: 4px;
 	}
 }
