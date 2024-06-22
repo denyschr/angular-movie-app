@@ -9,15 +9,9 @@ import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-
 @Component({
   selector: 'app-poster-card',
   standalone: true,
-  imports: [
-    CommonModule,
-    CardModule,
-    ButtonModule,
-    RatingModule,
-    MinutesToHoursPipe,
-  ],
+  imports: [CommonModule, CardModule, ButtonModule, RatingModule, MinutesToHoursPipe],
   templateUrl: './poster-card.component.html',
-  styleUrl: './poster-card.component.scss',
+  styleUrl: './poster-card.component.scss'
 })
 export class PosterCardComponent {
   @Input() poster!: Poster;

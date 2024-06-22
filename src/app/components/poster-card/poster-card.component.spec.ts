@@ -8,7 +8,7 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PosterCardComponent],
+      imports: [PosterCardComponent]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PosterCardComponent);

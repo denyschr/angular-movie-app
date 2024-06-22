@@ -10,23 +10,17 @@
         {{ poster.title }}
       </a>
       <div class="poster__info-meta truncate-double text-body-marginal-bold">
-        <time [attr.datetime]="poster.release_year"
-          >{{ poster.release_year }},
-        </time>
+        <time [attr.datetime]="poster.release_year">{{ poster.release_year }}, </time>
         <span class="poster__director">Directed by {{ poster.director }}</span>
       </div>
-      <span class="poster__duration text-body-small">{{
-        poster.duration | minutesToHours
-      }}</span>
+      <span class="poster__duration text-body-small">{{ poster.duration | minutesToHours }}</span>
     </div>
     <div class="poster__rating">
       <p-rating [cancel]="false" />
     </div>
     <div class="poster__genres flex-row-center text-body-small-bold">
       @for (genre of poster.genres; track poster.id) {
-      <span class="poster__genre text-body-small-bold"
-        >#{{ genre | lowercase }}</span
-      >
+        <span class="poster__genre text-body-small-bold">#{{ genre | lowercase }}</span>
       }
     </div>
     <p class="poster__description truncate-triple text-body-small">
@@ -36,13 +30,11 @@
       <p-button
         styleClass="poster-action"
         icon="pi pi-bookmark"
-        (click)="addToWatchList.emit(poster.id)"
-      />
+        (click)="addToWatchList.emit(poster.id)" />
       <p-button
         styleClass="poster-action"
         icon="pi pi-heart"
-        (click)="addToFavoriteList.emit(poster.id)"
-      />
+        (click)="addToFavoriteList.emit(poster.id)" />
     </div>
   </div>
 </p-card>
