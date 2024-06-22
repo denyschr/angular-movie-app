@@ -8,7 +8,7 @@ import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-
 
 @Component({
   standalone: true,
-  selector: 'app-poster-card',
+  selector: 'amov-poster-card',
   template: `
     <p-card styleClass="poster">
       <ng-template pTemplate="header">
