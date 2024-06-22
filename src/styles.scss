@@ -1,14 +1,8 @@
 // =======================================================
-// Fonts
-// =======================================================
-@import url(https://fonts.googleapis.com/css?family=Manrope:regular,700);
-
-// =======================================================
 // Variables
 // =======================================================
 :root {
 	// Typography
-	--font-family-base: "Manrope";
 	--font-weight-base: 400;
 	--font-weight-bold: 700;
 
@@ -18,14 +12,6 @@
 	--text-size-base: 1rem;
 	--text-size-larger: 1.25rem;
 	--text-size-larger-2: 1.875rem;
-
-	// Color Scheme
-	--background-base: #1a1a1a;
-	--background-tinted-highlight: #242424;
-	--background-press: #141414;
-	--text-base: #fff;
-	--text-subdued: #999999;
-	--text-warning: #ffa42b;
 
 	// Layout
 	--content-spacing: 16px;
@@ -54,9 +40,6 @@ html {
 }
 
 body {
-	background-color: var(--background-press);
-	color: var(--text-base);
-	font-family: var(--font-family-base), sans-serif;
 	font-size: var(--text-size-base);
 	font-weight: var(--font-weight-base);
 	text-rendering: optimizeLegibility;
@@ -87,41 +70,6 @@ li {
 ul {
 	margin: 0;
 	padding: 0;
-}
-
-button {
-	cursor: pointer;
-	color: inherit;
-	background-color: transparent;
-}
-
-button,
-input,
-textarea {
-	font-size: inherit;
-	line-height: inherit;
-	border: none;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	display: none;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-	appearance: button;
 }
 
 [class*="_container"] {

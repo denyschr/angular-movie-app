@@ -1,0 +1,46 @@
+@if (posters.length) {
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Must - Watch Movies</h2>
+    <div class="section__items">
+      @for (poster of posters; track poster.id) {
+      <app-poster-card
+        [poster]="poster"
+        (addToWatchList)="addToWatchList($event)"
+        (addToFavoriteList)="addToFavoriteList($event)"
+      ></app-poster-card>
+      }
+    </div>
+  </div>
+</section>
+}
+
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Your watch list</h2>
+    @if (watchList.length) {
+    <div class="section__items">
+      @for (poster of watchList; track poster.id) {
+      <app-poster-card [poster]="poster"></app-poster-card>
+      }
+    </div>
+    } @else {
+    <span class="text-body-medium">You haven't added any movies yet</span>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__container">
+    <h2 class="section__title text-title-medium">Your favorite list</h2>
+    @if (favoriteList.length) {
+    <div class="section__items">
+      @for (poster of favoriteList; track poster.id) {
+      <app-poster-card [poster]="poster"></app-poster-card>
+      }
+    </div>
+    } @else {
+    <span class="text-body-medium">You haven't added any movies yet</span>
+    }
+  </div>
+</section>
