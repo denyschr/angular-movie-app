@@ -34,13 +34,17 @@ body {
 
 img,
 video {
-	display: block;
 	object-fit: cover;
 }
 
 img {
+	display: inline-block;
 	max-width: 100%;
 	vertical-align: top;
+}
+
+video {
+	display: block;
 }
 
 fieldset {
@@ -50,7 +54,6 @@ fieldset {
 a {
 	display: inline-block;
 	text-decoration: none;
-	color: inherit;
 	&:focus,
 	&:active {
 		outline: transparent;
@@ -66,24 +69,10 @@ li {
 	list-style-position: inside;
 }
 
-button {
-	padding: 0;
-	outline: transparent;
-	background-color: transparent;
-	color: inherit;
-	cursor: pointer;
-	&::-moz-focus-inner {
-		padding: 0;
-		border: 0;
-	}
-}
-
 input,
 button,
 textarea {
-	border: none;
 	font: inherit;
-	color: inherit;
 }
 
 @media prefers-reduced-motion {

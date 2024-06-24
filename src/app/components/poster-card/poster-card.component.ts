@@ -1,60 +1,72 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Poster } from '../../models/poster.model';
-import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
-import { RatingModule } from 'primeng/rating';
 import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-to-hours.pipe';
 
 @Component({
   standalone: true,
   selector: 'amov-poster-card',
   template: `
-    <p-card styleClass="poster">
-      <ng-template pTemplate="header">
-        <a href="#" class="poster__img">
-          <img [src]="'/assets/images' + poster.image" [alt]="poster.title" />
+    <article class="poster relative">
+      <div class="poster__img border-round-top-md overflow-hidden">
+        <img class="w-full h-full" [src]="'assets/images' + poster.image" [alt]="poster.title" />
+      </div>
+      <div
+        class="flex flex-column align-items-start row-gap-3 py-4 px-3 border-round-bottom-md bg-white shadow-2">
+        <a
+          href="#"
+          class="poster__title truncate text-xl text-600 font-medium transition-linear transition-duration-200 hover:text-900"
+          >{{ poster.title }}
         </a>
-      </ng-template>
-      <div class="poster__interactive-area flex-col-start">
-        <div class="poster__title-area">
-          <a href="#" class="poster__title truncate text-title-small">
-            {{ poster.title }}
-          </a>
-          <div class="poster__info-meta truncate-double text-body-marginal-bold">
-            <time [attr.datetime]="poster.release_year">{{ poster.release_year }}, </time>
-            <span class="poster__director">Directed by {{ poster.director }}</span>
+        <span class="relative z-2 text-500">
+          {{ poster.duration | minutesToHours }}
+        </span>
+        <div class="relative z-2 flex align-items-center column-gap-3">
+          <div class="flex align-items-center column-gap-2">
+            <i class="pi pi-star-fill text-orange-500"></i>
+            <span class="text-400">{{ poster.rating }}/10</span>
           </div>
-          <span class="poster__duration text-body-small">{{
-            poster.duration | minutesToHours
-          }}</span>
+          <span class="truncate text-500">{{ poster.director }}</span>
         </div>
-        <div class="poster__rating">
-          <p-rating [cancel]="false" />
-        </div>
-        <div class="poster__genres flex-row-center text-body-small-bold">
-          @for (genre of poster.genres; track poster.id) {
-            <span class="poster__genre text-body-small-bold">#{{ genre | lowercase }}</span>
-          }
-        </div>
-        <p class="poster__description truncate-triple text-body-small">
+        <p
+          class="relative z-2 truncate truncate-triple text-500 font-medium font-italic line-height-3">
           {{ poster.description }}
         </p>
-        <div class="poster__actions flex-row-center">
+        <div class="relative z-2 flex align-items-center column-gap-2">
           <p-button
-            styleClass="poster-action"
             icon="pi pi-bookmark"
+            [rounded]="true"
+            severity="danger"
             (click)="addToWatchList.emit(poster.id)" />
           <p-button
-            styleClass="poster-action"
             icon="pi pi-heart"
+            [rounded]="true"
+            severity="danger"
             (click)="addToFavoriteList.emit(poster.id)" />
         </div>
       </div>
-    </p-card>
+    </article>
   `,
-  styles: [``],
-  imports: [CommonModule, CardModule, ButtonModule, RatingModule, MinutesToHoursPipe]
+  styles: [
+    `
+      .poster {
+        &__img {
+          aspect-ratio: 192 / 232;
+        }
+        &__title {
+          &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+          }
+        }
+      }
+    `
+  ],
+  imports: [CommonModule, ButtonModule, MinutesToHoursPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PosterCardComponent {
   @Input() poster!: Poster;
