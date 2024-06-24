@@ -1,8 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Poster } from '../../models/poster.model';
 import { ButtonModule } from 'primeng/button';
 import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-to-hours.pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -15,7 +15,7 @@ import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-
       <div
         class="flex flex-column align-items-start row-gap-3 py-4 px-3 border-round-bottom-md bg-white shadow-2">
         <a
-          href="#"
+          [routerLink]="['/movie', poster.id]"
           class="poster__title truncate text-xl text-600 font-medium transition-linear transition-duration-200 hover:text-900"
           >{{ poster.title }}
         </a>
@@ -65,7 +65,7 @@ import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-
       }
     `
   ],
-  imports: [CommonModule, ButtonModule, MinutesToHoursPipe],
+  imports: [RouterLink, ButtonModule, MinutesToHoursPipe],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PosterCardComponent {

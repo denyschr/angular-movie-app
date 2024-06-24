@@ -6,6 +6,8 @@ import { UpcomingPage } from './pages/upcoming/upcoming.page';
 import { StandardPageLayoutComponent } from './components/standard-page-layout/standard-page-layout.component';
 import { FavoriteComponent } from './pages/popular/components/favorite/favorite.component';
 import { WatchlistComponent } from './pages/popular/components/watchlist/watchlist.component';
+import { MoviePage } from './pages/movie/movie.page';
+import { movieResolver } from './pages/movie/services/movie.resolver';
 
 export const routes: Routes = [
   {
@@ -42,6 +44,13 @@ export const routes: Routes = [
       {
         path: 'upcoming',
         component: UpcomingPage
+      },
+      {
+        path: 'movie/:id',
+        component: MoviePage,
+        resolve: {
+          data: movieResolver
+        }
       }
     ]
   }
