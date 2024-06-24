@@ -8,6 +8,7 @@ import { FavoriteComponent } from './pages/popular/components/favorite/favorite.
 import { WatchlistComponent } from './pages/popular/components/watchlist/watchlist.component';
 import { MoviePage } from './pages/movie/movie.page';
 import { movieResolver } from './pages/movie/services/movie.resolver';
+import { NotFoundPage } from './pages/not-found/not-found.page';
 
 export const routes: Routes = [
   {
@@ -53,5 +54,13 @@ export const routes: Routes = [
         }
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found'
+  },
+  {
+    path: 'not-found',
+    component: NotFoundPage
   }
 ];
