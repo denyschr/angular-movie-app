@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { posters } from '../../../../assets/posters';
 import { inject } from '@angular/core';
-import { EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 
 export const movieResolver = (route: ActivatedRouteSnapshot) => {
   const router = inject(Router);
@@ -11,5 +11,5 @@ export const movieResolver = (route: ActivatedRouteSnapshot) => {
     router.navigate(['**']);
     return EMPTY;
   }
-  return poster;
+  return of(poster);
 };
