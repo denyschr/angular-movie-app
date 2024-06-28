@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Poster } from '../../../../models/poster.model';
 
@@ -34,13 +34,16 @@ import { Poster } from '../../../../models/poster.model';
 export class PopularHeaderComponent {
   @Input() watchList: Poster[] = [];
   @Input() favoriteList: Poster[] = [];
-  #router = inject(Router);
-  #route = inject(ActivatedRoute);
+
+  constructor(
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {}
 
   public navigateToWatchlist() {
     const param = JSON.stringify(this.watchList);
-    this.#router.navigate(['watchlist'], {
-      relativeTo: this.#route,
+    this._router.navigate(['watchlist'], {
+      relativeTo: this._route,
       queryParams: { q: param },
       replaceUrl: true
     });
@@ -48,8 +51,8 @@ export class PopularHeaderComponent {
 
   public navigateToFavorite() {
     const param = JSON.stringify(this.favoriteList);
-    this.#router.navigate(['favorite'], {
-      relativeTo: this.#route,
+    this._router.navigate(['favorite'], {
+      relativeTo: this._route,
       queryParams: { q: param },
       replaceUrl: true
     });

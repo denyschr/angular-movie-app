@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Poster } from '../../../../models/poster.model';
 import { PosterCardComponent } from '../../../../components/poster-card/poster-card.component';
@@ -24,10 +24,11 @@ import { PosterCardComponent } from '../../../../components/poster-card/poster-c
 })
 export class FavoriteComponent implements OnInit {
   public favoriteList: Poster[] = [];
-  #route = inject(ActivatedRoute);
+
+  constructor(private _route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const param = this.#route.snapshot.queryParamMap.get('q');
+    const param = this._route.snapshot.queryParamMap.get('q');
     if (param) {
       this.favoriteList = JSON.parse(param);
     }

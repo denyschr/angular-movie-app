@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Poster } from '../../models/poster.model';
@@ -50,7 +50,9 @@ import { MinutesToHoursPipe } from '../../shared/pipes/minutes-to-hours/minutes-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoviePage {
-  public readonly poster$: Observable<Poster> = inject(ActivatedRoute).data.pipe(
+  public readonly poster$: Observable<Poster> = this._route.data.pipe(
     map(paramMap => paramMap['data'])
   );
+
+  constructor(private _route: ActivatedRoute) {}
 }
