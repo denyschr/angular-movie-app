@@ -1,16 +1,14 @@
-<div class="content-spacing">
-  @if (posters.length) {
-  <section class="pt-2 pb-4">
-    <h2 class="mb-3 text-2xl">Popular movies</h2>
-    <div class="common-grid">
-      @for (poster of posters; track poster) {
-      <amov-poster-card
-        [poster]="poster"
-        (addToWatchList)="addToWatchList($event)"
-        (addToFavoriteList)="addToFavoriteList($event)">
-      </amov-poster-card>
-      }
-    </div>
-  </section>
-  }
-</div>
+@if (posters.length) {
+<section class="pt-2 pb-4">
+  <h2 class="mb-3 text-2xl">Popular movies</h2>
+  <div class="common-grid">
+    @for (poster of posters; track poster) {
+    <amov-poster-card
+      [poster]="poster"
+      (addToWatchList)="addToWatchList($event)"
+      (addToFavoriteList)="addToFavoriteList($event)">
+    </amov-poster-card>
+    }
+  </div>
+</section>
+}
