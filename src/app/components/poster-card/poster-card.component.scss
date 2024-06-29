@@ -1,0 +1,13 @@
+.poster {
+	&__img {
+		aspect-ratio: 192 / 232;
+	}
+	&__title {
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+		}
+	}
+}

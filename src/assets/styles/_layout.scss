@@ -1,0 +1,24 @@
+.wrapper {
+	display: grid;
+	grid-template-areas: "left-sidebar main-view";
+	gap: 8px;
+	height: 100%;
+	grid-template-columns: auto 1fr;
+	overflow: clip;
+}
+
+.main-view {
+	grid-area: main-view;
+	overflow-y: auto;
+}
+
+.common-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 2rem 1.25rem;
+}
+
+.content-spacing {
+	max-width: var(--container-width);
+	padding: 0 var(--container-offset);
+}

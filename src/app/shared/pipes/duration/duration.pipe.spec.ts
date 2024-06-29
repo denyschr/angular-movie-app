@@ -1,8 +1,8 @@
-import { MinutesToHoursPipe } from './minutes-to-hours.pipe';
+import { DurationPipe } from './duration.pipe';
 
 describe('MinutesToHoursPipe', () => {
   it('create an instance', () => {
-    const pipe = new MinutesToHoursPipe();
+    const pipe = new DurationPipe();
     expect(pipe).toBeTruthy();
   });
 });

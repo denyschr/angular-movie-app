@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   standalone: true,
   selector: 'amov-root',
-  template: ``,
+  template: `<router-outlet></router-outlet>`,
   styles: [``],
   imports: [RouterOutlet]
 })
