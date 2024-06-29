@@ -3,10 +3,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: 'amov-left-sidebar',
-  templateUrl: './left-sidebar.component.html',
-  styleUrl: './left-sidebar.component.scss',
+  selector: 'amov-header',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LeftSidebarComponent {}
+export class HeaderComponent {}

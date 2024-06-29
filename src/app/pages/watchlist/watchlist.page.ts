@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'amov-upcoming',
-  templateUrl: './upcoming.page.html',
-  styleUrl: './upcoming.page.scss',
+  selector: 'amov-watchlist',
+  templateUrl: './watchlist.page.html',
+  styleUrl: './watchlist.page.scss',
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UpcomingPage {}
+export class WatchlistPage {}

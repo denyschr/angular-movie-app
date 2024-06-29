@@ -4,11 +4,11 @@ import { PopularPage } from './pages/popular/popular.page';
 import { TopRatePage } from './pages/top-rate/top-rate.page';
 import { UpcomingPage } from './pages/upcoming/upcoming.page';
 import { StandardPageLayoutComponent } from './components/standard-page-layout/standard-page-layout.component';
-import { FavoriteComponent } from './pages/popular/components/favorite/favorite.component';
-import { WatchlistComponent } from './pages/popular/components/watchlist/watchlist.component';
 import { MoviePage } from './pages/movie/movie.page';
 import { movieResolver } from './pages/movie/services/movie.resolver';
 import { NotFoundPage } from './pages/not-found/not-found.page';
+import { FavoritePage } from './pages/favorite/favorite.page';
+import { WatchlistPage } from './pages/watchlist/watchlist.page';
 
 export const routes: Routes = [
   {
@@ -22,17 +22,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'popular',
-        component: PopularPage,
-        children: [
-          {
-            path: 'watchlist',
-            component: WatchlistComponent
-          },
-          {
-            path: 'favorite',
-            component: FavoriteComponent
-          }
-        ]
+        component: PopularPage
       },
       {
         path: 'now-playing',
@@ -45,6 +35,14 @@ export const routes: Routes = [
       {
         path: 'upcoming',
         component: UpcomingPage
+      },
+      {
+        path: 'favorite',
+        component: FavoritePage
+      },
+      {
+        path: 'watchlist',
+        component: WatchlistPage
       },
       {
         path: 'movie/:id',

@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   standalone: true,
   selector: 'amov-now-playing',
-  template: `<p>now-playing works!</p>`,
-  styles: [``],
+  templateUrl: './now-playing.page.html',
+  styleUrl: './now-playing.page.scss',
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
