@@ -23,16 +23,20 @@
       {{ poster.description }}
     </p>
     <div class="relative z-2 flex align-items-center column-gap-2">
-      <p-button
-        icon="pi pi-bookmark"
-        [rounded]="true"
-        severity="danger"
-        (click)="addToWatchList.emit(poster.id)" />
-      <p-button
-        icon="pi pi-heart"
-        [rounded]="true"
-        severity="danger"
-        (click)="addToFavoriteList.emit(poster.id)" />
+      @if (isWatchListButton) {
+        <p-button
+          icon="pi pi-bookmark"
+          [rounded]="true"
+          [severity]="isInWatchList ? 'danger' : null"
+          (click)="onToggleWatchList()" />
+      }
+      @if (isFavoriteListButton) {
+        <p-button
+          icon="pi pi-heart"
+          [rounded]="true"
+          [severity]="isInFavoriteList ? 'danger' : null"
+          (click)="onToggleFavoriteList()" />
+      }
     </div>
   </div>
 </article>
