@@ -1,4 +1,17 @@
 <section class="pt-2 pb-4">
   <h2 class="mb-3 text-2xl">Your watchlist</h2>
-  <div class="common-grid"></div>
+  @if (movies.length) {
+  <div class="common-grid">
+    @for (movie of movies; track movie.id) {
+    <amov-poster-card
+      [poster]="movie"
+      [isFavoriteListButton]="false"
+      (toggleWatchList)="toggleWatchList($event, movie)"
+      (toggleFavoriteList)="toggleFavoriteList($event, movie)">
+    </amov-poster-card>
+    }
+  </div>
+  } @else {
+  <p>Your watchlist is empty</p>
+  }
 </section>
