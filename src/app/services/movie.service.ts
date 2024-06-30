@@ -7,10 +7,9 @@ import {
   UPCOMING_POSTERS
 } from '../../assets/db/posters';
 import { Poster } from '../models/poster.model';
+import { MessageService } from 'primeng/api';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class MovieService {
   private readonly _movies = POSTERS;
   private readonly _popularMovies = POPULAR_POSTERS;
@@ -19,6 +18,8 @@ export class MovieService {
   private readonly _upcomingMovies = UPCOMING_POSTERS;
   private readonly _watchList: Poster[] = [];
   private readonly _favoriteList: Poster[] = [];
+
+  constructor(private _messageService: MessageService) {}
 
   public getPopularMovies(): Poster[] {
     return this._popularMovies;
@@ -52,8 +53,10 @@ export class MovieService {
     const index = this._watchList.indexOf(poster);
     if (isInList) {
       this._watchList.push(poster);
+      this.showMessage('success', 'Added to watchlist');
     } else {
       this._watchList.splice(index, 1);
+      this.showMessage('error', 'Removed from watchlist');
     }
   }
 
@@ -61,8 +64,10 @@ export class MovieService {
     const index = this._favoriteList.indexOf(poster);
     if (isInList) {
       this._favoriteList.push(poster);
+      this.showMessage('success', 'Added to favorites');
     } else {
       this._favoriteList.splice(index, 1);
+      this.showMessage('error', 'Removed from favorites');
     }
   }
 
@@ -72,5 +77,13 @@ export class MovieService {
 
   public isInFavoriteList(id: number): boolean {
     return this._favoriteList.some(poster => poster.id === id);
+  }
+
+  private showMessage(severity: string, summary: string): void {
+    this._messageService.clear();
+    this._messageService.add({
+      severity,
+      summary
+    });
   }
 }
